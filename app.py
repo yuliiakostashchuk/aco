@@ -1,4 +1,8 @@
+import argparse
 import datetime
+
+def create_parser():
+    parser = argparse.ArgumentParser()
 
 def set_default_parameters():
     parameters = {
