@@ -4,6 +4,32 @@ import datetime
 def create_parser():
     parser = argparse.ArgumentParser()
 
+    parser.add_argument("--tries", type=int)
+    parser.add_argument("--tours", type=int)
+    # parser.add_argument("--seed") # TODO
+    parser.add_argument("--time", type=float)
+    # parser.add_argument("--tsplibfile") # TODO
+    parser.add_argument("--optimum", type=int)
+    parser.add_argument("--ants", type=int)
+    parser.add_argument("--nnants", type=int)
+    parser.add_argument("--alpha", type=float)
+    parser.add_argument("--beta", type=float)
+    parser.add_argument("--rho", type=float)
+    parser.add_argument("--q0", type=float)
+    parser.add_argument("--elitistants", type=int)
+    parser.add_argument("--rasranks", type=int)
+    parser.add_argument("--nnls", type=int)
+    parser.add_argument("--localsearch", type=int)
+    # parser.add_argument("--dlb") # TODO
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument("--asys", action='store_true')
+    group.add_argument("--eas", action='store_true')
+    # group.add_argument("--ras", action='store_true')
+    group.add_argument("--mmas", action='store_true')
+    # group.add_argument("--bwas", action='store_true')
+    group.add_argument("--acs", action='store_true')
+    parser.add_argument("--quiet", action='store_true')
+
 def set_default_parameters():
     parameters = {
         "ls_flag": 3,
