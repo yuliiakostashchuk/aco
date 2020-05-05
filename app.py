@@ -30,6 +30,8 @@ def create_parser():
     group.add_argument("--acs", action='store_true')
     parser.add_argument("--quiet", action='store_true')
 
+    return parser
+
 def set_default_parameters():
     parameters = {
         "ls_flag": 3,
