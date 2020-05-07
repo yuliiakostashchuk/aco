@@ -63,6 +63,8 @@ def set_default_parameters():
 
 def main():
     start_time = datetime.datetime.now()
+    parser = create_parser()
+    args = parser.parse_args()
     with open('eil51.tsp') as f:
         for line in f:
             if line.startswith('DIMENSION :'):
