@@ -66,6 +66,21 @@ def main():
     parser = create_parser()
     args = parser.parse_args()
     parameters = set_default_parameters()
+    if args.time is not None:
+        parameters["max_time"] = args.time
+    if args.tries is not None:
+        parameters["max_tries"] = args.tries
+    if args.tours is not None:
+        parameters["max_tours"] = args.tours
+    if args.optimum is not None:
+        parameters["optimal"] = args.optimum
+    parameters["as_flag"] = args.asys
+    parameters["eas_flag"] = args.eas
+    # parameters["ras_flag"] = args.ras
+    parameters["mmas_flag"] = args.mmas
+    # parameters["bwas_flag"] = args.bwas
+    parameters["acs_flag"] = args.acs
+
     with open('eil51.tsp') as f:
         for line in f:
             if line.startswith('DIMENSION :'):
