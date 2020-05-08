@@ -81,6 +81,8 @@ def main():
     # parameters["bwas_flag"] = args.bwas
     parameters["acs_flag"] = args.acs
 
+    print('Parameters:', parameters)
+
     with open('eil51.tsp') as f:
         for line in f:
             if line.startswith('DIMENSION :'):
