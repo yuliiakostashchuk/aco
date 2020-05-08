@@ -133,6 +133,15 @@ def main():
     # parameters["bwas_flag"] = args.bwas
     parameters["acs_flag"] = args.acs
 
+    if parameters["as_flag"]:
+        parameters.update(set_default_as_parameters())
+    if parameters["eas_flag"]:
+        parameters.update(set_default_eas_parameters())
+    if parameters["mmas_flag"]:
+        parameters.update(set_default_mmas_parameters())
+    if parameters["acs_flag"]:
+        parameters.update(set_default_acs_parameters())
+
     print('Parameters:', parameters)
 
     with open('eil51.tsp') as f:
