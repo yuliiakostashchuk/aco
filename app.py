@@ -61,6 +61,58 @@ def set_default_parameters():
     }
     return parameters
 
+def set_default_as_parameters():
+    parameters = {
+        "n_ants": -1,
+        "nn_ants": 20,
+        "alpha": 1.0,
+        "beta": 2.0,
+        "rho": 0.5,
+        "q_0": 0.0,
+        "ras_ranks": 0,
+        "elitist_ants": 0
+    }
+    return parameters
+
+def set_default_eas_parameters():
+    parameters = {
+        "n_ants": -1,
+        "nn_ants": 20,
+        "alpha": 1.0,
+        "beta": 2.0,
+        "rho": 0.5,
+        "q_0": 0.0,
+        "ras_ranks": 0,
+        "elitist_ants": -1
+    }
+    return parameters
+
+def set_default_mmas_parameters():
+    parameters = {
+        "n_ants": -1,
+        "nn_ants": 20,
+        "alpha": 1.0,
+        "beta": 2.0,
+        "rho": 0.02,
+        "q_0": 0.0,
+        "ras_ranks": 0,
+        "elitist_ants": 0
+    }
+    return parameters
+
+def set_default_acs_parameters():
+    parameters = {
+        "n_ants": 10,
+        "nn_ants": 20,
+        "alpha": 1.0,
+        "beta": 2.0,
+        "rho": 0.1,
+        "q_0": 0.9,
+        "ras_ranks": 0,
+        "elitist_ants": 0
+    }
+    return parameters
+
 def main():
     start_time = datetime.datetime.now()
     parser = create_parser()
