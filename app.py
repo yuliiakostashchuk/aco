@@ -113,6 +113,29 @@ def set_default_acs_parameters():
     }
     return parameters
 
+def set_default_ls_parameters(parameters):
+    ls_parameters = {
+        "dlb_flag": True,
+        "nn_ls": 20,
+        "n_ants": 25,
+        "nn_ants": 20,
+        "alpha": 1.0,
+        "beta": 2.0,
+        "rho": 0.5,
+        "q_0": 0.0,
+    }
+    if parameters["mmas_flag"]:
+        ls_parameters["n_ants"] = 25
+        ls_parameters["rho"] = 0.2
+        ls_parameters["q_0"] = 0.00
+    if parameters["acs_flag"]:
+        ls_parameters["n_ants"] = 10
+        ls_parameters["rho"] = 0.1
+        ls_parameters["q_0"] = 0.98
+    if parameters["eas_flag"]:
+        ls_parameters["elitist_ants"] = 25
+    return ls_parameters
+
 def main():
     start_time = datetime.datetime.now()
     parser = create_parser()
