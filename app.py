@@ -142,6 +142,9 @@ def main():
     if parameters["acs_flag"]:
         parameters.update(set_default_acs_parameters())
 
+    if args.localsearch is not None:
+        parameters["ls_flag"] = args.localsearch
+
     print('Parameters:', parameters)
 
     with open('eil51.tsp') as f:
