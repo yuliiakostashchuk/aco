@@ -171,6 +171,27 @@ def main():
     if parameters["ls_flag"]:
         parameters.update(set_default_ls_parameters(parameters))
 
+    if args.ants is not None:
+        parameters["n_ants"] = args.ants
+    if args.nnants is not None:
+        parameters["nn_ants"] = args.nnants
+    if args.alpha is not None:
+        parameters["alpha"] = args.alpha
+    if args.beta is not None:
+        parameters["beta"] = args.beta
+    if args.rho is not None:
+        parameters["rho"] = args.rho
+    if args.q0 is not None:
+        parameters["q_0"] = args.q0
+    if args.elitistants is not None:
+        parameters["elitist_ants"] = args.elitistants
+    if args.rasranks is not None:
+        parameters["ras_ranks"] = args.rasranks
+    if args.nnls is not None:
+        parameters["nn_ls"] = args.nnls
+    # if args.dlb is not None:
+    #     parameters["dlb_flag"] = args.dlb
+
     print('Parameters:', parameters)
 
     with open('eil51.tsp') as f:
