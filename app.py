@@ -192,7 +192,7 @@ def main():
     # if args.dlb is not None:
     #     parameters["dlb_flag"] = args.dlb
 
-    print('Parameters:', parameters)
+    print('Parameters:\n', parameters)
 
     with open('eil51.tsp') as f:
         for line in f:
