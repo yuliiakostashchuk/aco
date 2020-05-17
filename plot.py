@@ -25,3 +25,8 @@ if __name__ == '__main__':
     points = get_circumference(radius, n)
 
     coordinates = extract_coordinates(points)
+
+    figure = go.Figure(data=go.Scatter(x=coordinates[0], y=coordinates[1], mode='markers'))
+    figure.update_layout(width=1000, height=1000)
+
+    figure.show()
