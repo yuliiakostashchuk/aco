@@ -9,4 +9,8 @@ def get_circumference(radius, n):
     return points
 
 if __name__ == '__main__':
-    pass
+
+    radius = 100
+    n = 20
+
+    points = get_circumference(radius, n)
