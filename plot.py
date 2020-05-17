@@ -23,3 +23,5 @@ if __name__ == '__main__':
     n = 20
 
     points = get_circumference(radius, n)
+
+    coordinates = extract_coordinates(points)
