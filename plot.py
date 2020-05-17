@@ -8,6 +8,15 @@ def get_circumference(radius, n):
         points.append((int(radius*math.cos(2*pi/n*i)), int(radius*math.sin(2*pi/n*i))))
     return points
 
+def extract_coordinates(points):
+
+    coordinates = []
+
+    for i in range(len(points[0])):
+        coordinates.append([point[i] for point in points])
+
+    return coordinates
+
 if __name__ == '__main__':
 
     radius = 100
