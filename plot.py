@@ -8,6 +8,19 @@ def get_circumference(radius, n):
         points.append((int(radius*math.cos(2*pi/n*i)), int(radius*math.sin(2*pi/n*i))))
     return points
 
+def get_sphere(radius, n):
+    points = []
+    for i in range(n):
+        theta = 2*pi/n*i
+        for j in range(n):
+            phi = 2*pi/n*j
+            x = int(radius * math.sin(theta) * math.cos(phi))
+            y = int(radius * math.sin(theta) * math.sin(phi))
+            z = int(radius * math.cos(theta))
+            points.append((x, y, z))
+
+    return points
+
 def extract_coordinates(points):
 
     coordinates = []
