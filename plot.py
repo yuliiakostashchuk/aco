@@ -41,14 +41,17 @@ if __name__ == '__main__':
 
     radius = 100
     n = 20
+    a = 2
 
     # Get coordinates
 
     circumference_points = get_circumference(radius, n)
     sphere_points = get_sphere(radius, n)
+    grid_points = get_grid(n, a)
 
     circumference_coordinates = extract_coordinates(circumference_points)
     sphere_coordinates = extract_coordinates(sphere_points)
+    grid_coordinates = extract_coordinates(grid_points)
 
     # Plot figures
 
@@ -57,5 +60,9 @@ if __name__ == '__main__':
 
     sphere = go.Figure(data=go.Scatter3d(x=sphere_coordinates[0], y=sphere_coordinates[1], z=sphere_coordinates[2], mode='markers'))
 
+    grid = go.Figure(data=go.Scatter(x=grid_coordinates[0], y=grid_coordinates[1], mode='markers'))
+    grid.update_layout(width=1000, height=1000)
+
     circumference.show()
     sphere.show()
+    grid.show()
