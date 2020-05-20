@@ -48,8 +48,7 @@ if __name__ == '__main__':
     circumference = go.Figure(data=go.Scatter(x=circumference_coordinates[0], y=circumference_coordinates[1], mode='markers'))
     circumference.update_layout(width=1000, height=1000)
 
-    circumference.show()
-
     sphere = go.Figure(data=go.Scatter3d(x=sphere_coordinates[0], y=sphere_coordinates[1], z=sphere_coordinates[2], mode='markers'))
 
+    circumference.show()
     sphere.show()
