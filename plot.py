@@ -35,11 +35,15 @@ if __name__ == '__main__':
     radius = 100
     n = 20
 
+    # Get coordinates
+
     circumference_points = get_circumference(radius, n)
     sphere_points = get_sphere(radius, n)
 
     circumference_coordinates = extract_coordinates(circumference_points)
     sphere_coordinates = extract_coordinates(sphere_points)
+
+    # Plot figures
 
     circumference = go.Figure(data=go.Scatter(x=circumference_coordinates[0], y=circumference_coordinates[1], mode='markers'))
     circumference.update_layout(width=1000, height=1000)
