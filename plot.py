@@ -21,6 +21,13 @@ def get_sphere(radius, n):
 
     return points
 
+def get_grid(n, a):
+    points = []
+    for i in range(0, n * a, a):
+        for j in range(0, n * a, a):
+            points.append((i, j))
+    return points
+
 def extract_coordinates(points):
 
     coordinates = []
