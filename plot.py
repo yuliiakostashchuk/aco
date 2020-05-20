@@ -35,16 +35,16 @@ if __name__ == '__main__':
     radius = 100
     n = 20
 
-    points = get_circumference(radius, n)
+    circumference_points = get_circumference(radius, n)
     sphere_points = get_sphere(radius, n)
 
-    coordinates = extract_coordinates(points)
+    circumference_coordinates = extract_coordinates(circumference_points)
     sphere_coordinates = extract_coordinates(sphere_points)
 
-    figure = go.Figure(data=go.Scatter(x=coordinates[0], y=coordinates[1], mode='markers'))
-    figure.update_layout(width=1000, height=1000)
+    circumference = go.Figure(data=go.Scatter(x=circumference_coordinates[0], y=circumference_coordinates[1], mode='markers'))
+    circumference.update_layout(width=1000, height=1000)
 
-    figure.show()
+    circumference.show()
 
     sphere = go.Figure(data=go.Scatter3d(x=sphere_coordinates[0], y=sphere_coordinates[1], z=sphere_coordinates[2], mode='markers'))
 
