@@ -28,6 +28,16 @@ def get_grid(n, a):
             points.append((i, j))
     return points
 
+def get_cube(n, a):
+    points = []
+    for i in range(0, n * a, a):
+        for j in range(0, n * a, a):
+            for k in [0, (n - 1) * a]:
+                points.append((i, j, k))
+                points.append((k, i, j))
+                points.append((i, k, j))
+    return list(set(points))
+
 def extract_coordinates(points):
 
     coordinates = []
