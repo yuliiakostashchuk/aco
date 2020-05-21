@@ -52,16 +52,19 @@ if __name__ == '__main__':
     radius = 100
     n = 20
     a = 2
+    m = 3
 
     # Get coordinates
 
     circumference_points = get_circumference(radius, n)
     sphere_points = get_sphere(radius, n)
     grid_points = get_grid(n, a)
+    cube_points = get_cube(m, a)
 
     circumference_coordinates = extract_coordinates(circumference_points)
     sphere_coordinates = extract_coordinates(sphere_points)
     grid_coordinates = extract_coordinates(grid_points)
+    cube_coordinates = extract_coordinates(cube_points)
 
     # Plot figures
 
@@ -73,6 +76,9 @@ if __name__ == '__main__':
     grid = go.Figure(data=go.Scatter(x=grid_coordinates[0], y=grid_coordinates[1], mode='markers'))
     grid.update_layout(width=1000, height=1000)
 
+    cube = go.Figure(data=go.Scatter3d(x=cube_coordinates[0], y=cube_coordinates[1], z=cube_coordinates[2], mode='markers'))
+
     circumference.show()
     sphere.show()
     grid.show()
+    cube.show()
