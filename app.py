@@ -194,22 +194,23 @@ def main():
 
     print('Parameters:\n', parameters)
 
-    n = None
-    coordinates = []
-
-    with open('eil51.tsp') as f:
-        for line in f:
-            if line.startswith('DIMENSION :'):
-                n = int(line.split()[-1])
-            if line.startswith('NODE_COORD_SECTION'):
-                print('found section containing the node coordinates')
-                break
-        for line in f:
-            if line.startswith('EOF'):
-                break
-            coordinates.append((int(line.split()[1]), int(line.split()[2])))
-
-    assert n == len(coordinates)
+    # TODO
+    # n = None
+    # coordinates = []
+    #
+    # with open('eil51.tsp') as f:
+    #     for line in f:
+    #         if line.startswith('DIMENSION :'):
+    #             n = int(line.split()[-1])
+    #         if line.startswith('NODE_COORD_SECTION'):
+    #             print('found section containing the node coordinates')
+    #             break
+    #     for line in f:
+    #         if line.startswith('EOF'):
+    #             break
+    #         coordinates.append((int(line.split()[1]), int(line.split()[2])))
+    #
+    # assert n == len(coordinates)
 
     elapsed = datetime.datetime.now() - start_time
     print(elapsed.seconds, elapsed.microseconds)
