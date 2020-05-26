@@ -1,6 +1,7 @@
 import argparse
 import datetime
 from aco.common import plot
+from aco.common.instance import Instance
 
 def create_parser():
     parser = argparse.ArgumentParser()
