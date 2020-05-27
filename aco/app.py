@@ -214,6 +214,11 @@ def main():
     #
     # assert n == len(coordinates)
 
+    # Read problem data
+    radius = 100
+    n = 20
+    instance = Instance(plot.get_circumference(radius, n))
+
     elapsed = datetime.datetime.now() - start_time
     print(elapsed.seconds, elapsed.microseconds)
 
