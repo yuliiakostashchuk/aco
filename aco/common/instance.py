@@ -5,3 +5,7 @@ class Instance:
 
         self.coordinates = coordinates
         self.n = len(self.coordinates)
+
+    def compute_distances(self):
+        distances = []
+        return distances
