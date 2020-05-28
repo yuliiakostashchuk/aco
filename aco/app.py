@@ -219,6 +219,14 @@ def main():
     n = 20
     instance = Instance(plot.get_circumference(radius, n))
 
+    if parameters["n_ants"] < 0:
+        parameters["n_ants"] = instance.n
+
+    if parameters["eas_flag"] and parameters["elitist_ants"] <= 0:
+        parameters["elitist_ants"] = instance.n
+
+    parameters["nn_ls"] = min(instance.n - 1, parameters["nn_ls"])
+
     elapsed = datetime.datetime.now() - start_time
     print(elapsed.seconds, elapsed.microseconds)
 
