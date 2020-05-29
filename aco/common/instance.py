@@ -8,6 +8,7 @@ class Instance:
         self.coordinates = coordinates
         self.n = len(self.coordinates)
         self.dimension = len(self.coordinates[0])
+        self.distances = self._compute_distances()
 
     def _compute_distances(self):
         distances = []
