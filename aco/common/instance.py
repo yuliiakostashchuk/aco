@@ -35,9 +35,5 @@ class Instance:
 
     def print(self):
 
-        with open('instance.txt', 'w') as f:
-            f.write('{}:\n'.format('Distances'))
-
-            for row in self.distances:
-                f.write(' '.join([str(item) for item in row]))
-                f.write('\n')
+        helpers.write_matrix_to_file('distances.txt', self.distances)
+        helpers.write_matrix_to_file('nn_list.txt', self.nn_list)
