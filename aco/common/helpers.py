@@ -8,3 +8,11 @@ def distance(first, second):
     distance = int(math.sqrt(xd * xd + yd * yd) + 0.5)
 
     return distance
+
+
+def write_matrix_to_file(file_path, matrix):
+
+    with open(file_path, 'w') as f:
+        for row in matrix:
+            f.write(' '.join([str(item) for item in row]))
+            f.write('\n')
