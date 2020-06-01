@@ -218,6 +218,7 @@ def main():
     radius = 100
     n = 20
     instance = Instance(plot.get_circumference(radius, n))
+    instance.print()
 
     if parameters["n_ants"] < 0:
         parameters["n_ants"] = instance.n
