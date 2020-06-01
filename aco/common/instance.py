@@ -31,3 +31,13 @@ class Instance:
             row.append(row.pop(0))
 
         return nn_list
+
+
+    def print(self):
+
+        with open('instance.txt', 'w') as f:
+            f.write('{}:\n'.format('Distances'))
+
+            for row in self.distances:
+                f.write(' '.join([str(item) for item in row]))
+                f.write('\n')
