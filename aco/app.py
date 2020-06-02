@@ -194,8 +194,6 @@ def main():
     # if args.dlb is not None:
     #     parameters["dlb_flag"] = args.dlb
 
-    print('Parameters:\n', parameters)
-
 
     # Read problem data
     radius = 100
