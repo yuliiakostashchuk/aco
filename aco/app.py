@@ -214,6 +214,8 @@ def main():
     parser = create_parser()
     args = parser.parse_args()
 
+    parameters, instance = init_program(args)
+
     elapsed = datetime.datetime.now() - start_time
     print(elapsed.seconds, elapsed.microseconds)
 
