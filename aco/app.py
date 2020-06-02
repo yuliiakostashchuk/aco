@@ -34,6 +34,77 @@ def create_parser():
 
     return parser
 
+def init_program(args):
+
+    parameters = set_default_parameters()
+    if args.time is not None:
+        parameters["max_time"] = args.time
+    if args.tries is not None:
+        parameters["max_tries"] = args.tries
+    if args.tours is not None:
+        parameters["max_tours"] = args.tours
+    if args.optimum is not None:
+        parameters["optimal"] = args.optimum
+    parameters["as_flag"] = args.asys
+    parameters["eas_flag"] = args.eas
+    # parameters["ras_flag"] = args.ras
+    parameters["mmas_flag"] = args.mmas
+    # parameters["bwas_flag"] = args.bwas
+    parameters["acs_flag"] = args.acs
+
+    if parameters["as_flag"]:
+        parameters.update(set_default_as_parameters())
+    if parameters["eas_flag"]:
+        parameters.update(set_default_eas_parameters())
+    if parameters["mmas_flag"]:
+        parameters.update(set_default_mmas_parameters())
+    if parameters["acs_flag"]:
+        parameters.update(set_default_acs_parameters())
+
+    if args.localsearch is not None:
+        parameters["ls_flag"] = args.localsearch
+
+    if parameters["ls_flag"]:
+        parameters.update(set_default_ls_parameters(parameters))
+
+    if args.ants is not None:
+        parameters["n_ants"] = args.ants
+    if args.nnants is not None:
+        parameters["nn_ants"] = args.nnants
+    if args.alpha is not None:
+        parameters["alpha"] = args.alpha
+    if args.beta is not None:
+        parameters["beta"] = args.beta
+    if args.rho is not None:
+        parameters["rho"] = args.rho
+    if args.q0 is not None:
+        parameters["q_0"] = args.q0
+    if args.elitistants is not None:
+        parameters["elitist_ants"] = args.elitistants
+    if args.rasranks is not None:
+        parameters["ras_ranks"] = args.rasranks
+    if args.nnls is not None:
+        parameters["nn_ls"] = args.nnls
+    # if args.dlb is not None:
+    #     parameters["dlb_flag"] = args.dlb
+
+
+    # Read problem data
+    radius = 100
+    n = 20
+    instance = Instance(plot.get_circumference(radius, n))
+    instance.print()
+
+    if parameters["n_ants"] < 0:
+        parameters["n_ants"] = instance.n
+
+    if parameters["eas_flag"] and parameters["elitist_ants"] <= 0:
+        parameters["elitist_ants"] = instance.n
+
+    parameters["nn_ls"] = min(instance.n - 1, parameters["nn_ls"])
+
+    return parameters, instance
+
 def set_default_parameters():
     parameters = {
         "ls_flag": 3,
@@ -142,72 +213,6 @@ def main():
     start_time = datetime.datetime.now()
     parser = create_parser()
     args = parser.parse_args()
-    parameters = set_default_parameters()
-    if args.time is not None:
-        parameters["max_time"] = args.time
-    if args.tries is not None:
-        parameters["max_tries"] = args.tries
-    if args.tours is not None:
-        parameters["max_tours"] = args.tours
-    if args.optimum is not None:
-        parameters["optimal"] = args.optimum
-    parameters["as_flag"] = args.asys
-    parameters["eas_flag"] = args.eas
-    # parameters["ras_flag"] = args.ras
-    parameters["mmas_flag"] = args.mmas
-    # parameters["bwas_flag"] = args.bwas
-    parameters["acs_flag"] = args.acs
-
-    if parameters["as_flag"]:
-        parameters.update(set_default_as_parameters())
-    if parameters["eas_flag"]:
-        parameters.update(set_default_eas_parameters())
-    if parameters["mmas_flag"]:
-        parameters.update(set_default_mmas_parameters())
-    if parameters["acs_flag"]:
-        parameters.update(set_default_acs_parameters())
-
-    if args.localsearch is not None:
-        parameters["ls_flag"] = args.localsearch
-
-    if parameters["ls_flag"]:
-        parameters.update(set_default_ls_parameters(parameters))
-
-    if args.ants is not None:
-        parameters["n_ants"] = args.ants
-    if args.nnants is not None:
-        parameters["nn_ants"] = args.nnants
-    if args.alpha is not None:
-        parameters["alpha"] = args.alpha
-    if args.beta is not None:
-        parameters["beta"] = args.beta
-    if args.rho is not None:
-        parameters["rho"] = args.rho
-    if args.q0 is not None:
-        parameters["q_0"] = args.q0
-    if args.elitistants is not None:
-        parameters["elitist_ants"] = args.elitistants
-    if args.rasranks is not None:
-        parameters["ras_ranks"] = args.rasranks
-    if args.nnls is not None:
-        parameters["nn_ls"] = args.nnls
-    # if args.dlb is not None:
-    #     parameters["dlb_flag"] = args.dlb
-
-
-    # Read problem data
-    radius = 100
-    n = 20
-    instance = Instance(plot.get_circumference(radius, n))
-    instance.print()
-
-    if parameters["n_ants"] < 0:
-        parameters["n_ants"] = instance.n
-
-    if parameters["eas_flag"] and parameters["elitist_ants"] <= 0:
-        parameters["elitist_ants"] = instance.n
-
-    parameters["nn_ls"] = min(instance.n - 1, parameters["nn_ls"])
 
     elapsed = datetime.datetime.now() - start_time
     print(elapsed.seconds, elapsed.microseconds)
