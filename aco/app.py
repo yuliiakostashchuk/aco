@@ -34,9 +34,10 @@ def create_parser():
 
     return parser
 
-def init_program(args):
+def init_program(args, n):
 
     parameters = set_default_parameters()
+
     if args.time is not None:
         parameters["max_time"] = args.time
     if args.tries is not None:
@@ -45,6 +46,7 @@ def init_program(args):
         parameters["max_tours"] = args.tours
     if args.optimum is not None:
         parameters["optimal"] = args.optimum
+
     parameters["as_flag"] = args.asys
     parameters["eas_flag"] = args.eas
     # parameters["ras_flag"] = args.ras
@@ -88,21 +90,15 @@ def init_program(args):
     # if args.dlb is not None:
     #     parameters["dlb_flag"] = args.dlb
 
-
-    # Read problem data
-    radius = 100
-    n = 20
-    instance = Instance(plot.get_circumference(radius, n))
-
     if parameters["n_ants"] < 0:
-        parameters["n_ants"] = instance.n
+        parameters["n_ants"] = n
 
     if parameters["eas_flag"] and parameters["elitist_ants"] <= 0:
-        parameters["elitist_ants"] = instance.n
+        parameters["elitist_ants"] = n
 
-    parameters["nn_ls"] = min(instance.n - 1, parameters["nn_ls"])
+    parameters["nn_ls"] = min(n - 1, parameters["nn_ls"])
 
-    return parameters, instance
+    return parameters
 
 def set_default_parameters():
     parameters = {
