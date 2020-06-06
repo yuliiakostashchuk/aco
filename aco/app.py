@@ -209,7 +209,12 @@ def main():
     parser = create_parser()
     args = parser.parse_args()
 
-    parameters, instance = init_program(args)
+    # Read problem data
+    radius = 100
+    n = 20
+    instance = Instance(plot.get_circumference(radius, n))
+
+    parameters = init_program(args, instance.n)
 
     elapsed = datetime.datetime.now() - start_time
     print(elapsed.seconds, elapsed.microseconds)
