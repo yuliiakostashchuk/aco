@@ -9,3 +9,8 @@ class Ant:
         self.n = self.instance.n
         self.tour = [None for i in range(self.n + 1)]
         self.visited = [False for i in range(self.n)]
+
+    def empty_memory(self):
+
+        for visited in self.visited:
+            visited = False
