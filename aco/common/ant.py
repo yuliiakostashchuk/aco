@@ -1,4 +1,4 @@
-
+import random
 
 class Ant:
 
@@ -14,3 +14,10 @@ class Ant:
 
         for visited in self.visited:
             visited = False
+
+    def place(self, step):
+
+        rnd = random.randint(0, self.n - 1)
+
+        self.tour[step] = rnd
+        self.visited[rnd] = True
