@@ -10,6 +10,7 @@ class Ant:
         self.n = self.instance.n
         self.tour = [None for i in range(self.n + 1)]
         self.visited = [False for i in range(self.n)]
+        self.position = None
 
     def empty_memory(self):
 
@@ -20,6 +21,7 @@ class Ant:
 
         self.tour[step] = node
         self.visited[node] = True
+        self.position = step
 
     def choose_closest_next(self, step):
 
