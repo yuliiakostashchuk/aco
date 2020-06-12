@@ -37,8 +37,7 @@ class Ant:
 
         assert 0 <= next_city < self.n
 
-        self.tour[step] = next_city
-        self.visited[next_city] = True
+        return next_city
 
     @property
     def tour_length(self):
