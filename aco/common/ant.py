@@ -1,4 +1,3 @@
-import random
 import math
 
 class Ant:
@@ -16,12 +15,10 @@ class Ant:
         for visited in self.visited:
             visited = False
 
-    def place(self, step):
+    def place(self, step, node):
 
-        rnd = random.randint(0, self.n - 1)
-
-        self.tour[step] = rnd
-        self.visited[rnd] = True
+        self.tour[step] = node
+        self.visited[node] = True
 
     def choose_closest_next(self, step):
 
