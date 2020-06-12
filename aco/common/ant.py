@@ -1,4 +1,5 @@
 import math
+import random
 
 class Ant:
 
@@ -50,3 +51,12 @@ class Ant:
             tour_length += distance
 
         return tour_length
+
+
+    def nn_tour(self):
+
+        step = 0
+
+        node = random.randint(0, self.n - 1)
+
+        self.place(step, node)
