@@ -21,12 +21,6 @@ class Ant:
         for visited in self.visited:
             visited = False
 
-    def place(self, step, node):
-
-        self.tour[step] = node
-        self.visited[node] = True
-        self.position = step
-
     def move(self, node):
 
         assert 0 <= self.position < self.n - 1
