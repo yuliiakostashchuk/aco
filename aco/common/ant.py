@@ -16,11 +16,6 @@ class Ant:
         self.tour[self.position] = node
         self.visited[node] = True
 
-    def empty_memory(self):
-
-        for visited in self.visited:
-            visited = False
-
     def move(self, node):
 
         assert 0 <= self.position < self.n - 1
