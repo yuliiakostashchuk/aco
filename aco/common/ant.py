@@ -4,13 +4,17 @@ import random
 class Ant:
 
 
-    def __init__(self, instance):
+    def __init__(self, instance, node):
 
         self.instance = instance
         self.n = self.instance.n
         self.tour = [None for i in range(self.n + 1)]
         self.visited = [False for i in range(self.n)]
         self.position = None
+
+        self.position = 0
+        self.tour[self.position] = node
+        self.visited[node] = True
 
     def empty_memory(self):
 
