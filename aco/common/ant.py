@@ -25,24 +25,23 @@ class Ant:
         self.tour[self.position] = node
         self.visited[node] = True
 
-    def choose_closest_next(self, step):
+    def choose_closest_next(self):
 
-        next_city = self.n
-        assert 0 < step < self.n
+        assert 0 <= self.position < self.n - 1
 
-        current_city = self.tour[step - 1]
+        current_node = self.tour[self.position]
         min_distance = math.inf
 
-        for city in range(self.n):
-            if not self.visited[city]:
-                distance = self.instance.distances[current_city][city]
+        for node in range(self.n):
+            if not self.visited[node]:
+                distance = self.instance.distances[current_node][node]
                 if distance < min_distance:
-                    next_city = city
+                    next_node = node
                     min_distance = distance
 
-        assert 0 <= next_city < self.n
+        assert next_node
 
-        return next_city
+        return next_node
 
     @property
     def tour_length(self):
