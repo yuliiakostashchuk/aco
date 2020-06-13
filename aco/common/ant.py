@@ -23,6 +23,15 @@ class Ant:
         self.visited[node] = True
         self.position = step
 
+    def move(self, node):
+
+        assert 0 <= self.position < self.n - 1
+
+        self.position += 1
+
+        self.tour[self.position] = node
+        self.visited[node] = True
+
     def choose_closest_next(self, step):
 
         next_city = self.n
