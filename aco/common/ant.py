@@ -3,17 +3,14 @@ import math
 class Ant:
 
 
-    def __init__(self, instance, node):
+    def __init__(self, node):
 
-        self.instance = instance
-        self.n = self.instance.n
-        self.tour = [None for i in range(self.n + 1)]
-        self.visited = [False for i in range(self.n)]
-        self.position = None
+        self.tour = [node]
+        self.visited = {node: True}
 
-        self.position = 0
-        self.tour[self.position] = node
-        self.visited[node] = True
+    @property
+    def position(self):
+        return len(self.tour) - 1
 
     def move(self, node):
 
