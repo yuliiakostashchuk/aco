@@ -53,3 +53,11 @@ class Ant:
             tour_length += distance
 
         return tour_length
+
+    @classmethod
+    def nn_tour(cls, instance):
+
+        node = 0
+        ant = cls(instance, node)
+
+        while ant.position < instance.n - 1:
