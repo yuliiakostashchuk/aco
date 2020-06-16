@@ -55,6 +55,22 @@ class Ant:
     def nn_tour(cls, instance):
 
         node = 0
-        ant = cls(instance, node)
+        ant = cls(node)
 
         while ant.position < instance.n - 1:
+
+            next_node = None
+            distances = instance.distances[ant.current_node]
+            min_distance = math.inf
+
+            for node in range(instance.n):
+                if not ant.visited[node]:
+                    distance = distances[node]
+                    if distance < min_distance:
+                        next_node = node
+                        min_distance = distance
+
+            if next_node is not None:
+                ant.move(next_node)
+
+        ant.move(ant.tour[0])
