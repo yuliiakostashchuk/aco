@@ -14,11 +14,7 @@ class Ant:
 
     def move(self, node):
 
-        assert 0 <= self.position < self.n - 1
-
-        self.position += 1
-
-        self.tour[self.position] = node
+        self.tour.append(node)
         self.visited[node] = True
 
     def choose_closest_next(self):
