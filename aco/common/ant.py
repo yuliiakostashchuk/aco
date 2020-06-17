@@ -12,6 +12,10 @@ class Ant:
     def position(self):
         return len(self.tour) - 1
 
+    @property
+    def current_node(self):
+        return self.tour[self.position]
+
     def move(self, node):
 
         self.tour.append(node)
