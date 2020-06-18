@@ -3,10 +3,12 @@ import math
 class Ant:
 
 
-    def __init__(self, node):
+    def __init__(self, node=0):
 
-        self.tour = [node]
-        self.visited = {node: True}
+        self.tour = []
+        self.visited = set()
+
+        self.move(node)
 
     @property
     def position(self):
@@ -19,7 +21,7 @@ class Ant:
     def move(self, node):
 
         self.tour.append(node)
-        self.visited[node] = True
+        self.visited.add(node)
 
     def choose_closest_next(self):
 
