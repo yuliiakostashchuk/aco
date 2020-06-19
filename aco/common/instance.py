@@ -37,3 +37,12 @@ class Instance:
 
         helpers.write_matrix_to_file('distances.txt', self.distances)
         helpers.write_matrix_to_file('nn_list.txt', self.nn_list)
+
+    def calc_tour_len(self, tour: list):
+
+        length = 0
+
+        for i in range(len(tour) - 1):
+            length += self.distances[tour[i]][tour[i + 1]]
+
+        return length
