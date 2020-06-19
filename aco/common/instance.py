@@ -1,5 +1,7 @@
 from aco.common import helpers
+from aco.common.ant import Ant
 import numpy as np
+import math
 
 
 class Instance:
@@ -46,3 +48,27 @@ class Instance:
             length += self.distances[tour[i]][tour[i + 1]]
 
         return length
+
+    def nn_tour(self):
+
+        ant = Ant()
+
+        while True:
+
+            next_node = None
+            distances = self.distances[ant.current_node]
+            min_distance = math.inf
+
+            for node in range(self.n):
+                if node not in ant.visited:
+                    distance = distances[node]
+                    if distance < min_distance:
+                        next_node = node
+                        min_distance = distance
+
+            if next_node is None:
+                next_node = ant.tour[0]
+                ant.move(next_node)
+                break
+            else:
+                ant.move(next_node)
