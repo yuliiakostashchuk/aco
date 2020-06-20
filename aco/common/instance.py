@@ -25,7 +25,6 @@ class Instance:
 
         return distances
 
-
     def _compute_nn_list(self):
         nn_list = np.argsort(self.distances, axis=1).tolist()
 
@@ -33,7 +32,6 @@ class Instance:
             row.append(row.pop(0))
 
         return nn_list
-
 
     def print(self):
 
