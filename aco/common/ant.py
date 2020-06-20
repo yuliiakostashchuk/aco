@@ -1,7 +1,6 @@
 
 class Ant:
 
-
     def __init__(self, node=0):
 
         self.tour = []
