@@ -10,10 +10,6 @@ class Ant:
         self.move(node)
 
     @property
-    def position(self):
-        return len(self.tour) - 1
-
-    @property
     def node(self):
         return self.tour[-1]
 
