@@ -72,3 +72,7 @@ class Instance:
                 break
             else:
                 ant.move(next_node)
+
+        len = self.calc_tour_len(ant.tour)
+
+        return ant.tour, len
