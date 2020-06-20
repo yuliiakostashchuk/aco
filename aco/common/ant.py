@@ -15,7 +15,7 @@ class Ant:
 
     @property
     def node(self):
-        return self.tour[self.position]
+        return self.tour[-1]
 
     def move(self, node):
 
