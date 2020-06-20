@@ -56,7 +56,7 @@ class Instance:
         while True:
 
             next_node = None
-            distances = self.distances[ant.current_node]
+            distances = self.distances[ant.node]
             min_distance = math.inf
 
             for node in range(self.n):
